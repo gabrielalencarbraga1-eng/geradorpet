@@ -18,7 +18,6 @@
             --neutral-light: #f5f5f5;
             --background-color: #ffffff;
             --error-color: #d32f2f;
-            --error-background: #ffebee;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         html { scroll-behavior: smooth; }
@@ -32,12 +31,10 @@
         nav ul { display: flex; align-items: center; list-style: none; gap: 1.5rem; }
         nav a:not(.btn) { text-decoration: none; color: var(--neutral-medium); font-weight: 500; position: relative; transition: color 0.3s ease; padding: 0.5rem 0; }
         nav a:not(.btn):hover { color: var(--primary-green-dark); }
-        nav a:not(.btn)::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--primary-green-medium); transition: width 0.3s ease; }
-        nav a:not(.btn):hover::after { width: 100%; }
         .hamburger { display: none; cursor: pointer; border: none; background: none; }
         .hamburger .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--primary-green-dark); transition: all 0.3s ease-in-out; }
-        .btn { padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; text-align: center; border: none; cursor: pointer; }
-        .btn-primary { background-color: var(--primary-green-medium); color: white; box-shadow: 0 4px 15px rgba(38, 166, 154, 0.2); }
+        .btn { padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; text-align: center; border: 2px solid transparent; cursor: pointer; }
+        .btn-primary { background-color: var(--primary-green-medium); color: white; box-shadow: 0 4px 15px rgba(38, 166, 154, 0.2); border-color: var(--primary-green-medium); }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(38, 166, 154, 0.3); }
         section { padding: 6rem 0; }
         .section-title { text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--primary-green-dark); margin-bottom: 1rem; }
@@ -47,18 +44,18 @@
         .hero-text { max-width: 55%; }
         .hero-text h1 { font-size: 3rem; font-weight: 700; line-height: 1.2; color: var(--primary-green-dark); margin-bottom: 1.5rem; }
         .hero-text p { font-size: 1.2rem; color: var(--neutral-medium); margin-bottom: 2.5rem; }
-        .hero-image { max-width: 40%; }
+        .hero-image { max-width: 45%; text-align: center; }
+        .hero-image svg { max-width: 100%; height: auto; }
         #how-it-works { background-color: var(--neutral-light); }
-        .steps-container { display: flex; justify-content: space-around; gap: 2rem; margin-top: 4rem; }
-        .step-card { background-color: white; padding: 2.5rem 2rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; flex: 1; }
+        .steps-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; }
+        .step-card { background-color: white; padding: 2.5rem 2rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .step-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); }
         .step-number { font-size: 2rem; font-weight: 700; color: var(--primary-green-medium); background-color: var(--primary-green-light); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; }
         .step-card h3 { font-size: 1.5rem; color: var(--primary-green-dark); margin-bottom: 0.5rem; }
         .faq-item { border-bottom: 1px solid #e0e0e0; padding: 1.5rem 0; }
         .faq-question { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 1.2rem; font-weight: 600; }
         .faq-question:hover { color: var(--primary-green-medium); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding-top 0.3s ease-out; color: var(--neutral-medium); }
-        .faq-answer p { padding-top: 0; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding-top 0.4s ease-out; color: var(--neutral-medium); }
         .faq-item.active .faq-answer { max-height: 500px; padding-top: 1rem; }
         .faq-toggle { font-size: 1.5rem; font-weight: bold; transition: transform 0.3s ease; }
         .faq-item.active .faq-toggle { transform: rotate(45deg); }
@@ -72,12 +69,12 @@
         .form-group label { font-weight: 600; margin-bottom: 0.5rem; color: var(--primary-green-dark); }
         .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid #ccc; font-family: 'Poppins', sans-serif; font-size: 1rem; transition: border-color 0.3s, box-shadow 0.3s; }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-green-medium); box-shadow: 0 0 0 3px rgba(38, 166, 154, 0.2); }
-        .options-grid, .radio-options, .checkbox-options { display: flex; flex-direction: column; gap: 1rem; }
-        .options-grid label, .radio-options label, .checkbox-options label { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; font-weight: 500; padding: 1rem 1.5rem; border: 2px solid #ccc; border-radius: 8px; transition: all 0.2s ease; text-align: left; }
-        .options-grid label:hover, .radio-options label:hover, .checkbox-options label:hover { border-color: var(--primary-green-medium); }
-        .options-grid input[type="radio"], .radio-options input[type="radio"], .checkbox-options input[type="checkbox"] { display: none; }
-        .options-grid input[type="radio"]:checked + label, .radio-options input[type="radio"]:checked + label, .checkbox-options input[type="checkbox"]:checked + label { border-color: var(--primary-green-medium); background-color: var(--primary-green-light); font-weight: 600; }
-        .form-group.invalid .options-grid, .form-group.invalid .radio-options { border: 2px solid var(--error-color); border-radius: 8px; padding: 1rem; }
+        .radio-options { display: flex; flex-direction: column; gap: 1rem; }
+        .radio-options label { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; font-weight: 500; padding: 1rem 1.5rem; border: 2px solid #ccc; border-radius: 8px; transition: all 0.2s ease; text-align: left; }
+        .radio-options label:hover { border-color: var(--primary-green-medium); }
+        .radio-options input[type="radio"] { display: none; }
+        .radio-options input[type="radio"]:checked + label { border-color: var(--primary-green-medium); background-color: var(--primary-green-light); font-weight: 600; }
+        .form-group.invalid .radio-options { border: 2px solid var(--error-color); border-radius: 8px; padding: 1rem; }
         .error-message { color: var(--error-color); font-size: 0.875rem; margin-top: 0.25rem; display: none; }
         .form-group.invalid .error-message { display: block; }
         .progress-container { margin-bottom: 2rem; position: relative; }
@@ -86,13 +83,14 @@
         .progress-text { text-align: center; margin-top: 0.5rem; color: var(--neutral-medium); font-weight: 500; }
         .quiz-navigation { display: flex; justify-content: space-between; margin-top: 3rem; }
         .quiz-navigation button { font-size: 1rem; }
-        #result-screen { text-align: center; }
+        #result-screen { text-align: center; animation: fadeIn 0.5s; }
         #result-screen h3 { font-size: 2rem; color: var(--primary-green-dark); margin-bottom: 1rem; }
         #result-screen p { font-size: 1.1rem; color: var(--neutral-medium); margin-bottom: 2rem; }
-        #result-screen ul { list-style: none; text-align: left; display: inline-block; margin-bottom: 2.5rem; }
-        #result-screen ul li { font-size: 1.1rem; margin-bottom: 1rem; }
+        #result-screen ul { list-style: none; text-align: left; display: inline-block; margin: 0 auto 2.5rem auto; max-width: 500px; }
+        #result-screen ul li { font-size: 1.1rem; margin-bottom: 1rem; padding-left: 1.5rem; position: relative; }
+        #result-screen ul li::before { content: '✅'; position: absolute; left: 0; color: var(--primary-green-medium); }
         footer { background-color: var(--primary-green-dark); color: white; padding: 3rem 0; text-align: center; }
-        @media (max-width: 992px) { .hero-content { flex-direction: column; text-align: center; } .hero-text, .hero-image { max-width: 100%; } .steps-container { flex-direction: column; } }
+        @media (max-width: 992px) { .hero-content { flex-direction: column; text-align: center; } .hero-text, .hero-image { max-width: 100%; } .steps-container { grid-template-columns: 1fr; } }
         @media (max-width: 768px) { nav ul { position: fixed; left: -100%; top: 73px; flex-direction: column; background-color: white; width: 100%; text-align: center; transition: 0.3s; gap: 0; } nav ul.active { left: 0; } nav li, nav a { width: 100%; } .hamburger { display: block; } .hamburger.active .bar:nth-child(2) { opacity: 0; } .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); } .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); } }
     </style>
 <script type="importmap">
@@ -130,8 +128,14 @@
                     <a href="#form-section" class="btn btn-primary">Criar Petição Agora</a>
                 </div>
                 <div class="hero-image">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#26A69A" d="M37.1,-45.7C51.2,-37.2,67.7,-27.1,73.5,-13.2C79.3,0.8,74.4,18.5,64.8,32.1C55.2,45.7,40.8,55.1,25.9,61.1C10.9,67.1,-4.7,69.7,-20.1,65.8C-35.5,61.9,-50.7,51.5,-60.7,37.8C-70.8,24.1,-75.7,7.1,-72.7,-8.4C-69.7,-23.9,-58.8,-37.9,-46,-46.8C-33.2,-55.7,-18.5,-59.5,-4.6,-56.9C9.4,-54.3,23,-45.7,37.1,-45.7Z" transform="translate(100 100)" />
+                    <svg width="400" height="400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="#004d40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 2V8H20" stroke="#004d40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 13H8" stroke="#26a69a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 17H8" stroke="#26a69a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 9H8" stroke="#26a69a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18 10L20 12L18 14" stroke="#004d40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 10L10 12L12 14" stroke="#004d40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
             </div>
@@ -157,10 +161,10 @@
                     <form id="petition-form" style="display: block;">
                         <div class="progress-container">
                              <div class="progress-bar-track"><div class="progress-bar-fill"></div></div>
-                            <p class="progress-text">Pergunta 1 de 9</p>
+                            <p class="progress-text">Pergunta 1 de N</p>
                         </div>
 
-                        <div class="quiz-step active" data-step-id="problem-type">
+                        <div class="quiz-step" data-step-id="problem-type">
                             <h3 class="quiz-question">Primeiro, qual é o seu problema principal?</h3>
                             <div class="form-group" required>
                                 <div class="radio-options">
@@ -177,7 +181,7 @@
                         <div class="quiz-step" data-step-id="author-name"><h3 class="quiz-question">Qual é o seu nome completo?</h3><div class="form-group"><input type="text" id="author-name" name="author-name" placeholder="Digite seu nome completo" required></div></div>
                         <div class="quiz-step" data-step-id="author-cpf"><h3 class="quiz-question">E o seu CPF?</h3><div class="form-group"><input type="text" id="author-cpf" name="author-cpf" placeholder="Digite seu CPF" required></div></div>
                         <div class="quiz-step" data-step-id="author-address"><h3 class="quiz-question">Qual seu endereço completo?</h3><div class="form-group"><input type="text" id="author-address" name="author-address" placeholder="Rua, Número, Bairro, Cidade, Estado, CEP" required></div></div>
-                        <div class="quiz-step" data-step-id="author-contact"><h3 class="quiz-question">Para finalizar seus dados, qual seu e-mail e telefone?</h3><div class="form-group"><input type="email" id="author-email" name="author-email" placeholder="seu@email.com" required></div><div class="form-group"><input type="tel" id="author-phone" name="author-phone" placeholder="(XX) XXXXX-XXXX" required></div></div>
+                        <div class="quiz-step" data-step-id="author-contact"><h3 class="quiz-question">Para finalizar, qual seu e-mail e telefone?</h3><div class="form-group"><input type="email" id="author-email" name="author-email" placeholder="seu@email.com" required></div><div class="form-group"><input type="tel" id="author-phone" name="author-phone" placeholder="(XX) XXXXX-XXXX" required></div></div>
                         <div class="quiz-step" data-step-id="company-name"><h3 class="quiz-question">Qual o nome da concessionária de energia?</h3><div class="form-group"><input type="text" id="company-name" name="company-name" placeholder="Ex: Coelba, Enel, Light, etc." required></div></div>
                         
                         <div class="quiz-step" data-step-id="corte-data"><h3 class="quiz-question">Em que data a energia foi cortada?</h3><div class="form-group"><input type="date" id="corte-data" name="corte-data" required></div></div>
@@ -186,20 +190,21 @@
                         <div class="quiz-step" data-step-id="oscilacao-equipamentos"><h3 class="quiz-question">Quais equipamentos foram danificados?</h3><div class="form-group"><textarea id="oscilacao-equipamentos" name="oscilacao-equipamentos" placeholder="Ex: TV Samsung 50 polegadas (R$ 2.500), Geladeira Brastemp (R$ 3.000)" required></textarea></div></div>
                         
                         <div class="quiz-step" data-step-id="valores-pedidos">
-                            <h3 class="quiz-question">Você quer pedir indenização por danos morais?</h3>
+                            <h3 class="quiz-question">Vamos falar sobre os valores.</h3>
                             <div class="form-group">
+                                <label for="material-value">Qual o valor total aproximado dos seus prejuízos materiais?</label>
+                                <input type="text" id="material-value" name="material-value" placeholder="R$ 0,00">
+                            </div>
+                             <div class="form-group">
+                                <label>Você quer pedir indenização por danos morais?</label>
                                 <div class="radio-options">
                                     <input type="radio" id="dano-moral-sim" name="dano-moral-pergunta" value="sim"><label for="dano-moral-sim">Sim, quero pedir</label>
                                     <input type="radio" id="dano-moral-nao" name="dano-moral-pergunta" value="nao" checked><label for="dano-moral-nao">Não, por enquanto</label>
                                 </div>
                             </div>
-                            <div class="form-group" id="dano-moral-valor-group" style="display: none;">
+                            <div class="form-group" id="danoMoralValueGroup" style="display: none;">
                                 <label for="moral-value">Se quiser, indique um valor sugerido para danos morais (opcional)</label>
                                 <input type="text" id="moral-value" name="moral-value" placeholder="R$ 5.000,00">
-                            </div>
-                            <div class="form-group">
-                                <label for="material-value">Qual o valor total aproximado dos seus prejuízos materiais?</label>
-                                <input type="text" id="material-value" name="material-value" placeholder="R$ 0,00">
                             </div>
                         </div>
 
@@ -215,11 +220,11 @@
                         <h3>Petição Gerada com Sucesso!</h3>
                         <p>Seu documento foi baixado. Siga os próximos passos para protocolar sua ação:</p>
                         <ul>
-                            <li>✅ Abra o arquivo 'peticao.pdf' que foi salvo no seu computador.</li>
-                            <li>✅ Imprima 3 vias do documento.</li>
-                            <li>✅ Junte cópias dos seus documentos pessoais (RG, CPF, Comprovante de Residência).</li>
-                            <li>✅ Anexe todas as provas que você mencionou (notas fiscais, protocolos, prints, etc).</li>
-                            <li>✅ Leve toda a documentação ao balcão do Juizado Especial Cível (JEC) da sua cidade.</li>
+                            <li>Abra o arquivo 'peticao.pdf' que foi salvo no seu computador.</li>
+                            <li>Imprima 3 vias do documento.</li>
+                            <li>Junte cópias dos seus documentos pessoais (RG, CPF, Comprovante de Residência).</li>
+                            <li>Anexe todas as provas que você mencionou (notas fiscais, protocolos, prints, etc).</li>
+                            <li>Leve toda a documentação ao balcão do Juizado Especial Cível (JEC) da sua cidade.</li>
                         </ul>
                         <button type="button" id="restart-quiz-btn" class="btn btn-primary">Começar Novamente</button>
                     </div>
@@ -230,10 +235,10 @@
         <section id="faq">
             <div class="container">
                 <h2 class="section-title">Perguntas Frequentes</h2>
-                <div class="faq-item"><div class="faq-question"><span>Quanto custa?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>A geração da sua petição inicial é totalmente gratuita. Nosso objetivo é democratizar o acesso à justiça.</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Preciso de advogado?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Para causas no Juizado Especial Cível de até 20 salários mínimos, você não precisa de advogado. Nossa ferramenta foca em criar documentos para estes casos.</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Meus dados estão seguros?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Sim. Não armazenamos nenhuma informação pessoal que você insere no formulário. Todos os dados são usados apenas para gerar o documento e são descartados em seguida.</p></div></div>
-                <div class="faq-item"><div class="faq-question"><span>Gerei a petição. E agora?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Após baixar o PDF, você deve imprimi-lo, juntar cópias dos seus documentos pessoais e de todas as provas que tiver (contas, protocolos, fotos), e levar tudo ao Juizado Especial Cível (JEC) da sua cidade para dar entrada no processo.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Quanto custa para gerar a petição?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>A geração da sua petição inicial é totalmente gratuita. Nosso objetivo é democratizar o acesso à justiça, permitindo que você mesmo defenda seus direitos no Juizado Especial Cível.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Preciso de um advogado para usar este documento?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Para causas no Juizado Especial Cível (JEC) de até 20 salários mínimos, a lei não exige a presença de um advogado. Nossa ferramenta foi desenhada exatamente para estes casos, te dando autonomia para iniciar o processo.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Meus dados pessoais estão seguros?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Sim. Sua privacidade é nossa prioridade. Não armazenamos nenhuma informação pessoal que você insere no formulário. Todos os dados são usados exclusivamente para gerar o documento em tempo real e são descartados permanentemente logo em seguida.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><span>Gerei a petição. E agora, quais os próximos passos?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Após baixar o PDF, o próximo passo é protocolar a ação. Você deve: 1) Imprimir 3 vias da petição. 2) Anexar cópias dos seus documentos pessoais (RG, CPF, Comprovante de Residência). 3) Anexar todas as provas que tiver (contas, protocolos, fotos, notas fiscais). 4) Levar toda essa documentação ao balcão de atendimento do Juizado Especial Cível (JEC) da sua cidade.</p></div></div>
             </div>
         </section>
     </main>
@@ -355,6 +360,12 @@
 
             function updateNavigationButtons() {
                 prevBtn.style.visibility = currentStepIndex === 0 ? 'hidden' : 'visible';
+                prevBtn.style.borderColor = '#ccc';
+                prevBtn.style.color = '#ccc';
+                if(currentStepIndex > 0) {
+                     prevBtn.style.borderColor = 'var(--primary-green-medium)';
+                     prevBtn.style.color = 'var(--primary-green-medium)';
+                }
                 nextBtn.textContent = currentStepIndex === quizFlow.length - 1 ? 'Gerar Petição' : 'Próximo';
             }
             
@@ -367,7 +378,7 @@
                     const formGroup = input.closest('.form-group');
                     let isFieldValid = true;
 
-                    if (input.type === 'radio' || input.type === 'checkbox') {
+                    if (input.type === 'radio') {
                         if (!currentStepElement.querySelector(`input[name="${input.name}"]:checked`)) {
                             isFieldValid = false;
                         }
@@ -388,15 +399,10 @@
             async function submitForm() {
                 nextBtn.textContent = 'Gerando...';
                 nextBtn.disabled = true;
+                prevBtn.disabled = true;
 
                 const formData = new FormData(form);
-                const data = {};
-                formData.forEach((value, key) => {
-                    if (data[key]) {
-                        if (!Array.isArray(data[key])) data[key] = [data[key]];
-                        data[key].push(value);
-                    } else { data[key] = value; }
-                });
+                const data = Object.fromEntries(formData.entries());
 
                 try {
                     const response = await fetch(API_URL, {
@@ -419,10 +425,25 @@
                     const maxWidth = doc.internal.pageSize.width - margin * 2;
                     doc.setFont('helvetica', 'normal');
                     doc.setFontSize(12);
+                    
                     const lines = doc.splitTextToSize(petitionText, maxWidth);
-                    doc.text(lines, margin, margin);
-                    doc.save('peticao.pdf');
+                    let y = margin;
+                    lines.forEach(line => {
+                         if (line.startsWith('**') && line.endsWith('**')) {
+                            doc.setFont('helvetica', 'bold');
+                            doc.text(line.replaceAll('**', ''), margin, y);
+                            doc.setFont('helvetica', 'normal');
+                        } else {
+                            doc.text(line, margin, y);
+                        }
+                        y += 7;
+                        if (y > 280) { // Page break
+                            doc.addPage();
+                            y = margin;
+                        }
+                    });
 
+                    doc.save('peticao.pdf');
                     form.style.display = 'none';
                     resultScreen.style.display = 'block';
 
@@ -430,8 +451,9 @@
                     console.error("Falha ao gerar petição:", error);
                     alert("Ocorreu um erro ao gerar a petição: " + error.message);
                 } finally {
-                    nextBtn.textContent = currentStepIndex === quizFlow.length - 1 ? 'Gerar Petição' : 'Próximo';
+                    nextBtn.textContent = 'Gerar Petição';
                     nextBtn.disabled = false;
+                    prevBtn.disabled = false;
                 }
             }
 
@@ -469,7 +491,7 @@
             });
             
             const danoMoralRadio = document.querySelectorAll('input[name="dano-moral-pergunta"]');
-            const danoMoralValueGroup = document.getElementById('dano-moral-valor-group');
+            const danoMoralValueGroup = document.getElementById('danoMoralValueGroup');
             danoMoralRadio.forEach(radio => {
                 radio.addEventListener('change', (e) => {
                     danoMoralValueGroup.style.display = e.target.value === 'sim' ? 'block' : 'none';
